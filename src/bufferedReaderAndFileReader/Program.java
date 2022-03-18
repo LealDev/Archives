@@ -1,4 +1,4 @@
-package applicarion;
+package bufferedReaderAndFileReader;
 
 import java.io.File;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package applicarion;
+package bufferedReaderAndFileReader;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -7,12 +7,9 @@ public class ProgramBR {
 
 	public static void main(String[] args) {
 		 String path = "c:\\temp\\in.txt";
-		 BufferedReader	br = null;
-		 FileReader fr = null;
 		 
-		 try {
-			fr =new FileReader(path);
-			br = new BufferedReader(fr);
+		 
+		 try (BufferedReader br = new BufferedReader(new FileReader(path))){
 			String line = br.readLine();
 			
 			while(line != null) {
@@ -21,17 +18,6 @@ public class ProgramBR {
 			}
 		} catch (Exception e) {
 			System.out.println("Error: "+ e.getMessage());
-			}finally {
-				try {
-					if (br != null) {
-						br.close();
-					}if (fr != null) {
-						fr.close();
-					}
-		 
-				}catch (Exception e) {
-					e.printStackTrace();
-				}
 			}
 	}
 }
